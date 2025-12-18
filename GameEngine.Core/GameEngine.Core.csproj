@@ -3,4 +3,23 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GameEngine.Input\**\*.cs" Exclude="..\GameEngine.Input\bin\**\*;..\GameEngine.Input\obj\**\*" />
+    <Compile Include="..\GameEngine.Physics\**\*.cs" Exclude="..\GameEngine.Physics\bin\**\*;..\GameEngine.Physics\obj\**\*" />
+    <Compile Include="..\GameEngine.Assets\**\*.cs" Exclude="..\GameEngine.Assets\bin\**\*;..\GameEngine.Assets\obj\**\*" />
+    <Compile Include="..\GameEngine.Renderer\**\*.cs" Exclude="..\GameEngine.Renderer\bin\**\*;..\GameEngine.Renderer\obj\**\*" />
+    <Compile Include="..\GameEngine.UI\**\*.cs" Exclude="..\GameEngine.UI\bin\**\*;..\GameEngine.UI\obj\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AssimpNet" Version="4.1.0" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="NVorbis" Version="0.10.5" />
+    <PackageReference Include="Silk.NET.Input" Version="2.21.0" />
+    <PackageReference Include="Silk.NET.OpenGL" Version="2.22.0" />
+    <PackageReference Include="Silk.NET.Windowing" Version="2.22.0" />
+    <PackageReference Include="SixLabors.Fonts" Version="2.1.3" />
+    <PackageReference Include="StbImageSharp" Version="2.30.15" />
+  </ItemGroup>
 </Project>

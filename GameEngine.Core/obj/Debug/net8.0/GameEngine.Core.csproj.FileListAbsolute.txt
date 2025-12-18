@@ -1,0 +1,13 @@
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/GameEngine.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/GameEngine.Core.AssemblyInfoInputs.cache
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/GameEngine.Core.AssemblyInfo.cs
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/GameEngine.Core.csproj.CoreCompileInputs.cache
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/GameEngine.Core.sourcelink.json
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/bin/Debug/net8.0/GameEngine.Core.deps.json
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/bin/Debug/net8.0/GameEngine.Core.dll
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/bin/Debug/net8.0/GameEngine.Core.pdb
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/GameEngine.Core.csproj.AssemblyReference.cache
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/GameEngine.Core.dll
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/refint/GameEngine.Core.dll
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/GameEngine.Core.pdb
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Core/obj/Debug/net8.0/ref/GameEngine.Core.dll
