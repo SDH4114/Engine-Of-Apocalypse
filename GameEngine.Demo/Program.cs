@@ -35,6 +35,7 @@ class GameScene : Scene
 {
     private GameObject player;
     private GameObject light;
+    private float _rotation;
 
     public override void OnLoad()
     {
@@ -46,7 +47,7 @@ class GameScene : Scene
         camera.FOV = 60f;
         camera.AspectRatio = 16f / 9f;
         cameraObj.AddComponent<FirstPersonController>();
-        cameraObj.Transform.Position = new Vector3(0, 2, 5);
+        cameraObj.Transform.Position = new Vector3(0, 2, -5);
         MainCamera = camera;
         AddGameObject(cameraObj);
 
@@ -107,6 +108,17 @@ class GameScene : Scene
 
         // UI
         CreateUI();
+    }
+
+    public override void Update(float deltaTime)
+    {
+        base.Update(deltaTime);
+
+        if (player != null)
+        {
+            _rotation += deltaTime;
+            player.Transform.Rotation = Quaternion.CreateFromAxisAngle(Vector3.UnitY, _rotation);
+        }
     }
 
     private void CreateUI()

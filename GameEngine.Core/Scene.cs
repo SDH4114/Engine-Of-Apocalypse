@@ -23,7 +23,7 @@ namespace GameEngine.Core
         public virtual void OnLoad() { }
         public virtual void OnUnload() { }
 
-        public void Update(float deltaTime)
+        public virtual void Update(float deltaTime)
         {
             foreach (var obj in _gameObjects)
                 obj.Update(deltaTime);

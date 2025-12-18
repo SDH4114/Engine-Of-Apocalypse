@@ -34,7 +34,7 @@ namespace GameEngine.Core
             Profiler = new Profiler();
             
             Window = new Window(config.Width, config.Height, config.Title);
-            Renderer = new Renderer(config.GraphicsAPI);
+            Renderer = new Renderer(config.GraphicsAPI, Window);
             Physics = new PhysicsWorld();
             SceneManager = new SceneManager();
             Input = new InputManager();
@@ -48,52 +48,60 @@ namespace GameEngine.Core
         public void Run()
         {
             _isRunning = true;
-            double lastTime = GetTime();
             double accumulator = 0.0;
 
-            while (_isRunning && Window.IsOpen)
-            {
-                Profiler.BeginFrame();
+            var shouldShutdown = false;
 
-                double currentTime = GetTime();
-                double deltaTime = currentTime - lastTime;
-                lastTime = currentTime;
-
-                accumulator += deltaTime;
-
-                // Обработка событий
-                Profiler.BeginSection("Events");
-                Window.PollEvents();
-                Input.Update();
-                Profiler.EndSection();
-
-                // Физика с фиксированным шагом
-                Profiler.BeginSection("Physics");
-                while (accumulator >= _fixedTimeStep)
+            Window.Run(
+                onUpdate: dt =>
                 {
-                    Physics.Step((float)_fixedTimeStep);
-                    accumulator -= _fixedTimeStep;
-                }
-                Profiler.EndSection();
+                    if (!_isRunning) return;
 
-                // Обновление логики
-                Profiler.BeginSection("Update");
-                SceneManager.Update((float)deltaTime);
-                UI.Update((float)deltaTime);
-                Profiler.EndSection();
+                    accumulator += dt;
 
-                // Рендеринг
-                Profiler.BeginSection("Render");
-                Renderer.BeginFrame();
-                SceneManager.Render(Renderer);
-                UI.Render(Renderer);
-                Renderer.EndFrame();
-                Profiler.EndSection();
+                    Profiler.BeginSection("Events");
+                    Input.Update();
+                    Profiler.EndSection();
 
-                Profiler.EndFrame();
+                    Profiler.BeginSection("Physics");
+                    while (accumulator >= _fixedTimeStep)
+                    {
+                        Physics.Step((float)_fixedTimeStep);
+                        accumulator -= _fixedTimeStep;
+                    }
+                    Profiler.EndSection();
+
+                    Profiler.BeginSection("Update");
+                    SceneManager.Update(dt);
+                    UI.Update(dt);
+                    Profiler.EndSection();
+                },
+                onRender: dt =>
+                {
+                    if (!_isRunning) return;
+
+                    Profiler.BeginFrame();
+
+                    Profiler.BeginSection("Render");
+                    Renderer.BeginFrame();
+                    SceneManager.Render(Renderer);
+                    UI.Render(Renderer);
+                    Renderer.EndFrame();
+                    Profiler.EndSection();
+
+                    Profiler.EndFrame();
+                    Profiler.MaybePrintStats();
+                },
+                onClose: () =>
+                {
+                    _isRunning = false;
+                    shouldShutdown = true;
+                });
+
+            if (shouldShutdown)
+            {
+                Shutdown();
             }
-
-            Shutdown();
         }
 
         private void Shutdown()

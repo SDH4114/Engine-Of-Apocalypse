@@ -17,8 +17,10 @@ namespace GameEngine.Core
         private Dictionary<string, ProfilingData> _sections = new Dictionary<string, ProfilingData>();
         private Stack<string> _sectionStack = new Stack<string>();
         private Stopwatch _frameTimer = new Stopwatch();
+        private Stopwatch _printTimer = Stopwatch.StartNew();
         private double _frameTime;
         private int _fps;
+        public long FrameCount { get; private set; }
 
         public void BeginFrame()
         {
@@ -47,6 +49,18 @@ namespace GameEngine.Core
         {
             _frameTime = _frameTimer.Elapsed.TotalMilliseconds;
             _fps = (int)(1000.0 / _frameTime);
+            FrameCount++;
+        }
+
+        public void MaybePrintStats(double intervalSeconds = 3.0)
+        {
+            if (_printTimer.Elapsed.TotalSeconds < intervalSeconds)
+            {
+                return;
+            }
+
+            _printTimer.Restart();
+            PrintStats();
         }
 
         public void PrintStats()

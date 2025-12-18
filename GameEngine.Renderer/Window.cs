@@ -15,14 +15,47 @@ namespace GameEngine.Core
             options.Title = title;
 
             _window = Silk.NET.Windowing.Window.Create(options);
-            _window.Initialize();
         }
+
+        public IWindow NativeWindow => _window;
+
+        public Vector2D<int> Size => _window.Size;
 
         public bool IsOpen => !_window.IsClosing;
 
         public void PollEvents()
         {
             _window.DoEvents();
+        }
+
+        public void Run(Action<float> onUpdate, Action<float> onRender, Action onClose = null)
+        {
+            if (onUpdate != null)
+            {
+                _window.Update += dt => onUpdate((float)dt);
+            }
+
+            if (onRender != null)
+            {
+                _window.Render += dt => onRender((float)dt);
+            }
+
+            if (onClose != null)
+            {
+                _window.Closing += onClose;
+            }
+
+            _window.Run();
+        }
+
+        public void Close()
+        {
+            _window.Close();
+        }
+
+        public void SwapBuffers()
+        {
+            _window.SwapBuffers();
         }
 
         public void Dispose()
