@@ -2003,8 +2003,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "GameEngine.Core": "1.0.0",
-          "Silk.NET.OpenGL": "2.22.0",
-          "Silk.NET.Windowing": "2.22.0"
+          "Silk.NET.OpenGL": "2.21.0",
+          "Silk.NET.Windowing": "2.21.0"
         },
         "compile": {
           "bin/placeholder/GameEngine.Renderer.dll": {}
@@ -6358,7 +6358,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -6383,11 +6383,11 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.14, 8.0.14]"
+            "version": "[8.0.22, 8.0.22]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.14, 8.0.14]"
+            "version": "[8.0.22, 8.0.22]"
           }
         ],
         "frameworkReferences": {
@@ -6395,7 +6395,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -61,16 +61,19 @@ namespace GameEngine.Core
                 body.AngularVelocity *= (1.0f - body.AngularDamping * deltaTime);
                 
                 // Интеграция позиции
-                body.GameObject.Transform.Position += body.Velocity * deltaTime;
-                
-                // Интеграция вращения
-                var angularDisplacement = body.AngularVelocity * deltaTime;
-                if (angularDisplacement.LengthSquared() > 0)
+                if (body.GameObject != null)
                 {
-                    var rotation = Quaternion.CreateFromAxisAngle(
-                        Vector3.Normalize(angularDisplacement),
-                        angularDisplacement.Length());
-                    body.GameObject.Transform.Rotation *= rotation;
+                    body.GameObject.Transform.Position += body.Velocity * deltaTime;
+                    
+                    // Интеграция вращения
+                    var angularDisplacement = body.AngularVelocity * deltaTime;
+                    if (angularDisplacement.LengthSquared() > 0)
+                    {
+                        var rotation = Quaternion.CreateFromAxisAngle(
+                            Vector3.Normalize(angularDisplacement),
+                            angularDisplacement.Length());
+                        body.GameObject.Transform.Rotation *= rotation;
+                    }
                 }
                 
                 // Сброс ускорения

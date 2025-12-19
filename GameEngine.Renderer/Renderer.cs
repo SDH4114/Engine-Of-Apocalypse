@@ -8,10 +8,10 @@ namespace GameEngine.Core
     {
         private readonly GraphicsAPI _api;
         private readonly Window _window;
-        private GL _gl;
+        private GL? _gl;
         private bool _glReady;
-        private OpenGLRenderer _glRenderer;
-        private Camera _activeCamera;
+        private OpenGLRenderer? _glRenderer;
+        private Camera? _activeCamera;
 
         public Renderer(GraphicsAPI api, Window window)
         {

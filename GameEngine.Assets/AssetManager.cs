@@ -60,7 +60,7 @@ namespace GameEngine.Core
         // ====================================================================
         // ЗАГРУЗКА ТЕКСТУР
         // ====================================================================
-        public async Task<Texture> LoadTextureAsync(string path, TextureSettings settings = null)
+        public async Task<Texture> LoadTextureAsync(string path, TextureSettings? settings = null)
         {
             if (_textures.TryGetValue(path, out var cached))
                 return cached;
@@ -71,7 +71,7 @@ namespace GameEngine.Core
             return texture;
         }
 
-        public Texture LoadTexture(string path, TextureSettings settings = null)
+        public Texture LoadTexture(string path, TextureSettings? settings = null)
         {
             if (_textures.TryGetValue(path, out var cached))
                 return cached;
@@ -85,7 +85,7 @@ namespace GameEngine.Core
         // ====================================================================
         // ЗАГРУЗКА ШЕЙДЕРОВ
         // ====================================================================
-        public Shader LoadShader(string vertexPath, string fragmentPath, string name = null)
+        public Shader LoadShader(string vertexPath, string fragmentPath, string? name = null)
         {
             name ??= $"{vertexPath}_{fragmentPath}";
             
@@ -122,7 +122,7 @@ namespace GameEngine.Core
             return material;
         }
 
-        public Material GetMaterial(string name)
+        public Material? GetMaterial(string name)
         {
             return _materials.TryGetValue(name, out var mat) ? mat : null;
         }

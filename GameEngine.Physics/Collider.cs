@@ -14,7 +14,7 @@ namespace GameEngine.Core
         public bool IsTrigger { get; set; } = false;
         public PhysicsMaterial Material { get; set; } = PhysicsMaterial.Default;
 
-        public abstract bool CheckCollision(Collider other, out CollisionInfo info);
+        public abstract bool CheckCollision(Collider other, out CollisionInfo? info);
         public abstract bool Raycast(Vector3 origin, Vector3 direction, out float distance);
         
         public override void OnAttach()

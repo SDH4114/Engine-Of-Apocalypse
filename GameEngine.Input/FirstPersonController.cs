@@ -22,7 +22,10 @@ namespace GameEngine.Core
 
         public override void Update(float deltaTime)
         {
+            if (GameObject == null) return;
+            
             var input = Engine.Instance.Input;
+            if (input == null) return;
 
             // Движение
             var movement = input.GetMovementInput();
@@ -50,3 +53,4 @@ namespace GameEngine.Core
         }
     }
 }
+

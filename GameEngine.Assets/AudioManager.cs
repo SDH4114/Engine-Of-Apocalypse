@@ -47,7 +47,7 @@ namespace GameEngine.Core
     // ========================================================================
     public class AudioSource : Component
     {
-        public AudioClip Clip { get; set; }
+        public AudioClip? Clip { get; set; }
         public float Volume { get; set; } = 1.0f;
         public float Pitch { get; set; } = 1.0f;
         public bool Loop { get; set; } = false;
@@ -74,7 +74,7 @@ namespace GameEngine.Core
 
         public override void Update(float deltaTime)
         {
-            if (Is3D && IsPlaying)
+            if (Is3D && IsPlaying && GameObject != null)
             {
                 // Обновление 3D позиции для OpenAL
                 var pos = GameObject.Transform.Position;
@@ -83,3 +83,4 @@ namespace GameEngine.Core
         }
     }
 }
+

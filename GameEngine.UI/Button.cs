@@ -6,7 +6,7 @@ namespace GameEngine.Core
     public sealed class Button : UIElement
     {
         public string Text { get; set; }
-        public event Action OnClickEvent;
+        public event Action? OnClickEvent;
 
         public Button(string text, Vector2 position, Vector2 size)
         {

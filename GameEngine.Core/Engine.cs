@@ -12,21 +12,20 @@ namespace GameEngine.Core
     // ========================================================================
     public class Engine
     {
-        private static Engine _instance;
+        private static Engine? _instance;
         public static Engine Instance => _instance ??= new Engine();
 
-        public Window Window { get; private set; }
-        public Renderer Renderer { get; private set; }
-        public PhysicsWorld Physics { get; private set; }
-        public SceneManager SceneManager { get; private set; }
-        public InputManager Input { get; private set; }
-        public AudioManager Audio { get; private set; }
-        public AssetManager Assets { get; private set; }
-        public UIManager UI { get; private set; }
-        public Profiler Profiler { get; private set; }
+        public Window? Window { get; private set; }
+        public Renderer? Renderer { get; private set; }
+        public PhysicsWorld? Physics { get; private set; }
+        public SceneManager? SceneManager { get; private set; }
+        public InputManager? Input { get; private set; }
+        public AudioManager? Audio { get; private set; }
+        public AssetManager? Assets { get; private set; }
+        public UIManager? UI { get; private set; }
+        public Profiler? Profiler { get; private set; }
 
         private bool _isRunning;
-        private double _targetFPS = 60.0;
         private double _fixedTimeStep = 1.0 / 60.0;
 
         public void Initialize(EngineConfig config)

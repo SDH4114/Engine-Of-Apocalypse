@@ -9,7 +9,7 @@ namespace GameEngine.Core
     // ========================================================================
     public class CollisionDetection
     {
-        public CollisionInfo CheckCollision(Collider a, Collider b)
+        public CollisionInfo? CheckCollision(Collider a, Collider b)
         {
             if (a.CheckCollision(b, out var info))
             {

@@ -9,7 +9,7 @@ namespace GameEngine.Core
     // ========================================================================
     public abstract class Component
     {
-        public GameObject GameObject { get; set; }
+        public GameObject? GameObject { get; set; }
         public bool Enabled { get; set; } = true;
 
         public virtual void OnAttach() { }

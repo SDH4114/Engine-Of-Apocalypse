@@ -65,3 +65,4 @@
 /Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/obj/Debug/net8.0/ref/GameEngine.Demo.dll
 /Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/bin/Debug/net8.0/shaders/standard.frag
 /Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/bin/Debug/net8.0/shaders/standard.vert
+/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/bin/Debug/net8.0/Assets/englogo.psd

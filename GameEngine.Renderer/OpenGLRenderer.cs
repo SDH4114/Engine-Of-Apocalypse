@@ -12,8 +12,6 @@ namespace GameEngine.Core
         {
             _gl = gl;
             _gl.Enable(GLEnum.DepthTest);
-            _gl.Enable(GLEnum.CullFace);
-            _gl.CullFace(GLEnum.Back);
         }
 
         public void Resize(uint width, uint height)
@@ -48,7 +46,8 @@ namespace GameEngine.Core
             material.Shader.SetVector3(_gl, "uAlbedo", material.Albedo);
 
             _gl.BindVertexArray(mesh.Vao);
-            _gl.DrawElements(PrimitiveType.Triangles, (uint)mesh.Indices.Length, DrawElementsType.UnsignedInt, 0);
+            var indexCount = (uint)mesh.Indices.Length;
+            _gl.DrawElements(PrimitiveType.Triangles, indexCount, DrawElementsType.UnsignedInt, 0);
             _gl.BindVertexArray(0);
         }
 

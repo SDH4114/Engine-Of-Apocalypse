@@ -15,13 +15,13 @@ namespace GameEngine.Core
         public float Radius { get; set; } = 0.5f;
         public Vector3 Center { get; set; }
 
-        public Vector3 WorldCenter => GameObject.Transform.Position + Center;
+        public Vector3 WorldCenter => GameObject!.Transform.Position + Center;
         public float WorldRadius => Radius * Math.Max(Math.Max(
-            GameObject.Transform.Scale.X,
-            GameObject.Transform.Scale.Y),
-            GameObject.Transform.Scale.Z);
+            GameObject!.Transform.Scale.X,
+            GameObject!.Transform.Scale.Y),
+            GameObject!.Transform.Scale.Z);
 
-        public override bool CheckCollision(Collider other, out CollisionInfo info)
+        public override bool CheckCollision(Collider other, out CollisionInfo? info)
         {
             info = null;
             
@@ -67,3 +67,4 @@ namespace GameEngine.Core
         }
     }
 }
+

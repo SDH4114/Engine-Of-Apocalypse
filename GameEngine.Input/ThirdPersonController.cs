@@ -12,7 +12,7 @@ namespace GameEngine.Core
     // ========================================================================
     public class ThirdPersonController : Component
     {
-        public GameObject Target { get; set; }
+        public GameObject? Target { get; set; }
         public float Distance { get; set; } = 5.0f;
         public float Height { get; set; } = 2.0f;
         public float RotationSpeed { get; set; } = 5.0f;
@@ -23,9 +23,10 @@ namespace GameEngine.Core
 
         public override void Update(float deltaTime)
         {
-            if (Target == null) return;
+            if (Target == null || GameObject == null) return;
 
             var input = Engine.Instance.Input;
+            if (input == null) return;
 
             // Вращение камеры
             var look = input.GetLookInput();
@@ -46,3 +47,4 @@ namespace GameEngine.Core
         }
     }
 }
+

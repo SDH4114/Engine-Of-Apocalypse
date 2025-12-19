@@ -23,9 +23,9 @@ namespace GameEngine.Core
             // Разделение объектов
             var correction = collision.Normal * collision.Penetration * 0.5f;
             
-            if (!bodyA.IsKinematic)
+            if (!bodyA.IsKinematic && bodyA.GameObject != null)
                 bodyA.GameObject.Transform.Position -= correction;
-            if (!bodyB.IsKinematic)
+            if (!bodyB.IsKinematic && bodyB.GameObject != null)
                 bodyB.GameObject.Transform.Position += correction;
 
             // Импульсное разрешение

@@ -15,8 +15,8 @@ namespace GameEngine.Core
         public Vector3 Size { get; set; } = Vector3.One;
         public Vector3 Center { get; set; }
 
-        public Vector3 WorldCenter => GameObject.Transform.Position + Center;
-        public Vector3 WorldSize => Size * GameObject.Transform.Scale;
+        public Vector3 WorldCenter => GameObject!.Transform.Position + Center;
+        public Vector3 WorldSize => Size * GameObject!.Transform.Scale;
 
         public override bool CheckCollision(Collider other, out CollisionInfo info)
         {
@@ -34,7 +34,7 @@ namespace GameEngine.Core
             return false;
         }
 
-        private bool CheckBoxBox(BoxCollider a, BoxCollider b, out CollisionInfo info)
+        private bool CheckBoxBox(BoxCollider a, BoxCollider b, out CollisionInfo? info)
         {
             info = null;
             var aMin = a.WorldCenter - a.WorldSize * 0.5f;
@@ -76,7 +76,7 @@ namespace GameEngine.Core
             return overlap;
         }
 
-        private bool CheckBoxSphere(BoxCollider box, SphereCollider sphere, out CollisionInfo info)
+        private bool CheckBoxSphere(BoxCollider box, SphereCollider sphere, out CollisionInfo? info)
         {
             info = null;
             var boxMin = box.WorldCenter - box.WorldSize * 0.5f;
@@ -110,30 +110,50 @@ namespace GameEngine.Core
             var min = WorldCenter - WorldSize * 0.5f;
             var max = WorldCenter + WorldSize * 0.5f;
 
-            float tmin = (min.X - origin.X) / direction.X;
-            float tmax = (max.X - origin.X) / direction.X;
+            var tMin = 0f;
+            var tMax = float.MaxValue;
 
-            if (tmin > tmax) (tmin, tmax) = (tmax, tmin);
+            const float eps = 1e-6f;
 
-            float tymin = (min.Y - origin.Y) / direction.Y;
-            float tymax = (max.Y - origin.Y) / direction.Y;
+            if (!IntersectSlab(origin.X, direction.X, min.X, max.X, ref tMin, ref tMax, eps) ||
+                !IntersectSlab(origin.Y, direction.Y, min.Y, max.Y, ref tMin, ref tMax, eps) ||
+                !IntersectSlab(origin.Z, direction.Z, min.Z, max.Z, ref tMin, ref tMax, eps))
+            {
+                return false;
+            }
 
-            if (tymin > tymax) (tymin, tymax) = (tymax, tymin);
+            distance = tMin;
+            return distance >= 0 && distance <= tMax;
+        }
 
-            if ((tmin > tymax) || (tymin > tmax)) return false;
+        private static bool IntersectSlab(float origin, float direction, float min, float max, ref float tMin, ref float tMax, float eps)
+        {
+            if (MathF.Abs(direction) < eps)
+            {
+                return origin >= min && origin <= max;
+            }
 
-            if (tymin > tmin) tmin = tymin;
-            if (tymax < tmax) tmax = tymax;
+            var invD = 1f / direction;
+            var t1 = (min - origin) * invD;
+            var t2 = (max - origin) * invD;
 
-            float tzmin = (min.Z - origin.Z) / direction.Z;
-            float tzmax = (max.Z - origin.Z) / direction.Z;
+            if (t1 > t2)
+            {
+                (t1, t2) = (t2, t1);
+            }
 
-            if (tzmin > tzmax) (tzmin, tzmax) = (tzmax, tzmin);
+            if (t1 > tMin)
+            {
+                tMin = t1;
+            }
 
-            if ((tmin > tzmax) || (tzmin > tmax)) return false;
+            if (t2 < tMax)
+            {
+                tMax = t2;
+            }
 
-            distance = tmin;
-            return distance >= 0;
+            return tMin <= tMax;
         }
     }
 }
+

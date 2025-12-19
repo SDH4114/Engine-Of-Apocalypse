@@ -24,7 +24,10 @@ namespace GameEngine.Core
 
         public override void Update(float deltaTime)
         {
+            if (GameObject == null) return;
+            
             var input = Engine.Instance.Input;
+            if (input == null) return;
 
             // Вращение при зажатой правой кнопке мыши
             if (input.IsMouseButtonDown(MouseButton.Right))
@@ -52,3 +55,4 @@ namespace GameEngine.Core
         }
     }
 }
+

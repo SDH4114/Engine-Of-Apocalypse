@@ -11,9 +11,9 @@ namespace GameEngine.Core
     // ========================================================================
     public class Scene
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = "";
         private List<GameObject> _gameObjects = new List<GameObject>();
-        public Camera MainCamera { get; set; }
+        public Camera? MainCamera { get; set; }
 
         public void AddGameObject(GameObject obj)
         {
@@ -43,3 +43,4 @@ namespace GameEngine.Core
         }
     }
 }
+

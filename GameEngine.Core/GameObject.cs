@@ -16,7 +16,7 @@ namespace GameEngine.Core
         public bool IsActive { get; set; } = true;
         
         private List<Component> _components = new List<Component>();
-        private GameObject _parent;
+        private GameObject? _parent;
         private List<GameObject> _children = new List<GameObject>();
 
         public GameObject(string name = "GameObject")
@@ -33,7 +33,7 @@ namespace GameEngine.Core
             return component;
         }
 
-        public T GetComponent<T>() where T : Component
+        public T? GetComponent<T>() where T : Component
         {
             return _components.Find(c => c is T) as T;
         }
@@ -56,3 +56,4 @@ namespace GameEngine.Core
         }
     }
 }
+

@@ -11,7 +11,7 @@ namespace GameEngine.Core
     // ========================================================================
     public class SceneManager
     {
-        private Scene _activeScene;
+        private Scene? _activeScene;
         private Dictionary<string, Scene> _scenes = new Dictionary<string, Scene>();
 
         public void AddScene(string name, Scene scene)

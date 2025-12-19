@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eaCVp4zEF7k=",
+  "dgSpecHash": "TbDA+nUZ/TE=",
   "success": true,
   "projectFilePath": "/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Input/GameEngine.Input.csproj",
   "expectedPackageFiles": [
@@ -114,8 +114,8 @@
     "/Users/aminmammadov/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/Users/aminmammadov/.nuget/packages/ultz.native.glfw/3.4.0/ultz.native.glfw.3.4.0.nupkg.sha512",
     "/Users/aminmammadov/.nuget/packages/ultz.native.sdl/2.30.1/ultz.native.sdl.2.30.1.nupkg.sha512",
-    "/Users/aminmammadov/.nuget/packages/microsoft.netcore.app.ref/8.0.14/microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
-    "/Users/aminmammadov/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.14/microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512"
+    "/Users/aminmammadov/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512",
+    "/Users/aminmammadov/.nuget/packages/microsoft.netcore.app.ref/8.0.22/microsoft.netcore.app.ref.8.0.22.nupkg.sha512"
   ],
   "logs": []
 }

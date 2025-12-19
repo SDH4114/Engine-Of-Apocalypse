@@ -77,3 +77,4 @@ namespace GameEngine.Core
         Trilinear
     }
 }
+
