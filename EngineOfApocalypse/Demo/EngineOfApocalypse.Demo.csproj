@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- ApplicationIcon требует ICO файл. Если у вас есть englogo.ico, раскомментируйте следующую строку -->
+    <!-- <ApplicationIcon>Assets\Icons\englogo.ico</ApplicationIcon> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\EngineOfApocalypse.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Assets\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

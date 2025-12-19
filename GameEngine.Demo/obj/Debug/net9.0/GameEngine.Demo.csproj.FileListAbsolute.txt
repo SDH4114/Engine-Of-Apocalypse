@@ -1,5 +1,0 @@
-/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/obj/Debug/net9.0/GameEngine.Demo.GeneratedMSBuildEditorConfig.editorconfig
-/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/obj/Debug/net9.0/GameEngine.Demo.AssemblyInfoInputs.cache
-/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/obj/Debug/net9.0/GameEngine.Demo.AssemblyInfo.cs
-/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/obj/Debug/net9.0/GameEngine.Demo.csproj.CoreCompileInputs.cache
-/Users/aminmammadov/giti/Engine-Of-Apocalypse/GameEngine.Demo/obj/Debug/net9.0/GameEngine.Demo.sourcelink.json
